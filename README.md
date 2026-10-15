@@ -10,4 +10,4 @@ Repositorio con las memorias de las practicas del modulo de Aplicaciones web
 | Nº | Práctica                      | Memoria                                                              |
 |----|-------------------------------|----------------------------------------------------------------------|
 | 1  | Markdown y github basico      | [Ver memoria](./practica-01-html-basico/memoria.md)                   |
-| 2  | Instalacion Apache            | [ver memoria](./practica-02-apache/apache.md)
+| 2  | Instalacion Apache            | [ver memoria](./practica-02-apache/Apache.md)
