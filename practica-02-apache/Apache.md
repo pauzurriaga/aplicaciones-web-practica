@@ -52,6 +52,17 @@ Las opciones significan:
 
 ![Salida 3](Imagenes/Salida3.png)
 
+```curl -I http://localhost```
+En la imagen se realiza una peticion a localhost.
+
+![Salida 4](Imagenes/Salida4.png)
+
+```sudo ufw status```
+```sudo ufw allow 'Apache```
+En esta imagen se configura el cortafuegos.
+
+![Salida 5](Imagenes/Salida5.png)
+
 **captura**
 
 ![Captura de pantalla 2](Imagenes/Captura2.png)
@@ -88,7 +99,7 @@ La diferencia entre estos perfiles son los puertos por los que permiten conexion
 
 ¿Cuándo conviene usar reload en lugar de restart?
 
-
+Conviene usar reload si quieres modificar la configuración de apache pero no quieres parar completamente el servicio.
 
 ### Apartado 5
 
@@ -105,19 +116,32 @@ La diferencia entre estos perfiles son los puertos por los que permiten conexion
 |/var/log/apache2/access.log|Archivo donde se almacenan los registros de el servidor |
 |/var/log/apache2/error.log |Archivo donde se almacenan los Errores de el servidor |
 
+**Salida de comandos**
+
+```ls -l /etc/apache2/sites-enabled/```
+Se lista la carpeta sites-enabled
+
+![Salida 6](Imagenes/Salida5.2.png)
+
 **captura**
 
 ![Captura de pantalla 3](Imagenes/Captura3.png)
 
+Se lista la carpeta apache2 en la ruta /etc/apache2.
+
 **Pregunta**
 
 ¿Por qué Apache usa enlaces simbólicos entre los directorios *-available y *-enabled?
+
+Porque permite tener las configuraciones disponibles por separado para poder desactivar sitos, módulos y configuraciones sin tener que mover ni duplicar sus archivos orgiginales.
 
 ### Apartado 6
 
 **captura**
 
 ![Captura de pantalla 4](Imagenes/Captura4.png)
+
+En la captura se muestran cambios que he hecho en la configuración de apache.
 
 ### Apartado 7
 
@@ -132,9 +156,38 @@ La diferencia entre estos perfiles son los puertos por los que permiten conexion
 |mod_status  |Página de estado del servidor |
 |mod_php / PHP-FPM |Ejecución de PHP (opcional) |
 
+**Salida de comandos**
+
+```apache2ctl -M```
+En la salida de este comando se listan los módulos activos.
+
+![Salida 7](Imagenes/Salida7.png)
+
+```ls /etc/apache2/mods-available/```
+Con este comando se listan los modulos en la carpeta mods avaliable.
+
+![Salida 8](Imagenes/Salida8.png)
+
+```sudo a2enmod rewrite```
+```sudo a2enmod headers```
+```sudo a2enmod ssl```
+```sudo systemctl restart apache2```
+```apache2ctl -M | grep -E "rewrite|headers|ssl"```
+Con estos comandos compruebo algunos módulos habituales.
+
+![Salida 9](Imagenes/Salida9.png)
+
+```sudo a2dismod status```
+```sudo systemctl restart apache2```
+Aquí estoy deshabilitando un modulo.
+
+![Salida 10](Imagenes/Salida10.png)
+
 **Pregunta**
 
 ¿Qué ocurre si desactivas un módulo del que depende otro?
+
+Puede que el mmodulo que genera la dependendia deje de funcionar bien o que apache no te deje eliminarlo.
 
 ### Apartado 8
 
@@ -142,13 +195,23 @@ La diferencia entre estos perfiles son los puertos por los que permiten conexion
 
 ![Captura de pantalla 5](Imagenes/Captura5.png)
 
+Se muestran los hosts cargados.
+
 ![Captura de pantalla 5.1](Imagenes/Captura5.1.png)
 
+Se muestra en el navegador de la maquina real la pagina 1 cargada.
+
 ![Captura de pantalla 5.2](Imagenes/Captura5.2.png)
+
+Se muestra en el navegador de la maquina real la pagina 2 cargada.
 
 **Pregunta**
 
 ¿Qué diferencia hay entre virtual hosts basados en nombre y basados en IP? ¿Cuál has usado?
+
+Los virtual host basados en nombre te permiten alojar varias webs en una misma dirección IP y distinguirlas por el nombre que se solicita, mientras que los basados en IP usan direcciones IP distintas para diferenciar los sitios.
+
+En esta practica se ha usado virtual host basados en nombre ya que sitio1.local y sitio2.local estan alojados en la misma IP.
 
 ### Apartado 9
 
@@ -156,9 +219,39 @@ La diferencia entre estos perfiles son los puertos por los que permiten conexion
 
 ![Captura de pantalla 6](Imagenes/Captura6.png)
 
+Se ve un error provocado porque le he quitado todos los permisos a la pagina por lo cual salta el error 403.
+
+![Captura de pantalla 6.1](Imagenes/Captura6.1.png)
+
+Este es el log de los errores.
+
+**Permisos**
+
+los permisos 755 y 644 son:
++ 755: el propietario puede leer, escribir y ejecutar; el grupo y los demás pueden leer y ejecutar.
++ 644: el propietario puede leer y escribir; el grupo y los demás solo pueden leer.
+
+Nunca se deben usar los permisos 777 en un servidor porque les estas otorgando permisos totales a todos los usuarios.
+
+El contenido root no debe pertenecer a todos ni ser editable porque dificultaria la gestion segura del contenido y puede aumentar los riesgos de seguridad.
+
 ### Conclusiones y problemas
 
+**Conclusion**
 
+En esta practica he aprendido a instalar y configurar el servidor web apache en ubuntu, también he aprendido a comprobar el estado del servicio, usar sus principales comandos de administración y conocer los archivo y directorios mas importantes de su configuracion.
+
+También he aprendido a modificar la pagina web predeterminada, a activar y desactivar módulos y configurar varios sitios web mediante virtual host.
+
+Por ultimo también he trabajado la gestión de permisos y propietarios de los archivos, comprendiendo la importancia de aplicar bien los permisos para mantener la seguridad del servidor.
+
+**Problemas**
+
+Durante la práctica he tenido algunas dificultades para comprender la configuración de los sitios virtuales y acceder a ellos desde el ordenador real. Para solucionarlo, he revisado la configuración de Apache y la resolución de nombres mediante el archivo hosts.
+
+Otro aspecto que me ha resultado confuso ha sido distinguir entre los archivos de configuración y los archivos de registro. He aprendido que envvars contiene variables de entorno de Apache, mientras que access.log registra las peticiones recibidas y error.log almacena información sobre los errores del servidor.
+
+También he aprendido a interpretar los permisos de Linux, como 644 y 755, y a consultar los registros de Apache para identificar posibles problemas.
 
 
 
