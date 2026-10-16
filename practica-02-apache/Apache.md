@@ -6,6 +6,9 @@
 **Salida de comandos**
 
 ```sudo apt update | sudo apt upgrade -y```
+Con este comando descargas e instalas la ultima versión de el servidor
+
+![Salida 1](Imageness/Salida1.png)
 
 **captura**
 
@@ -15,9 +18,14 @@ En esta captura se muestra la version actual de ubuntu despues de actualizarlo.
 
 ### Apartado 2
 
+**Salida de comandos**
+
+![Salida 2](Imageness/Salida2.png)
+
 **Pregunta**
 
 ¿Qué paquetes adicionales se han instalado como dependencias? 
+
 
 
 ### Apartado 3
@@ -89,6 +97,8 @@ En esta captura se muestra la version actual de ubuntu despues de actualizarlo.
 ![Captura de pantalla 5](Imagenes/Captura5.png)
 
 ![Captura de pantalla 5.1](Imagenes/Captura5.1.png)
+
+![Captura de pantalla 5.2](Imagenes/Captura5.2.png)
 
 **Pregunta**
 
