@@ -1,5 +1,14 @@
-# Instalacion, Configuracion y securizacion de apache
+# Instalacion, Configuracion y securizacion de apache en Ubuntu
 
+Alumno: Pau Zurriaga Zapata
+
+Ciclo: SMX
+
+Modulo: Aplicaciones Web
+
+Fecha: 15/10/2026
+
+---------
 
 ### Apartado 1
 
