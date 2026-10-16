@@ -6,9 +6,9 @@
 **Salida de comandos**
 
 ```sudo apt update | sudo apt upgrade -y```
-Con este comando descargas e instalas la ultima versión de el servidor
+Con este comando descargas e instalas la ultima versión de el servidor además tiene la opción -y que hace que automáticamente responda a todo que si.
 
-![Salida 1](Imageness/Salida1.png)
+![Salida 1](Imagenes/Salida1.png)
 
 **captura**
 
@@ -20,32 +20,78 @@ En esta captura se muestra la version actual de ubuntu despues de actualizarlo.
 
 **Salida de comandos**
 
-![Salida 2](Imageness/Salida2.png)
+```sudo apt install apache```
+Con este comando instalas apache en tu servidor.
+
+![Salida 2](Imagenes/Salida2.png)
+
+```apache2 -v```
+Con este comando se ve la version de apache que tiene instalado.
+
+![Salida 2.1](Imagenes/apache2-v.png)
 
 **Pregunta**
 
 ¿Qué paquetes adicionales se han instalado como dependencias? 
 
-
+Los paquetes adicionales que se instalan como dependencias son libfwupd2 y libgusb2.
 
 ### Apartado 3
+
+**Salida de comandos**
+
+```sudo ss -tulpn | grep apache2```
+El primer comando es ss que sirve para mostrar las conexiones de red y comprobar que puertos están en escucha con opciones y luego con la tubería se filtra para que muestre las líneas en las que ponga apache2.
+Las opciones significan:
+
++ t: muestra conexiones TCP.
++ u: muestra conexiones UDP.
++ l: muestra los puertos en escucha.
++ p: muestra el proceso que usa el puerto.
++ n: muestra los puertos y direcciones numéricamente.
+
+![Salida 3](Imagenes/Salida3.png)
 
 **captura**
 
 ![Captura de pantalla 2](Imagenes/Captura2.png)
 
+En la captura se ve el estado de el servicio apache.
+
 **Pregunta**
 
 ¿Qué diferencia hay entre los perfiles Apache, Apache Full y Apache Secure?
 
+La diferencia entre estos perfiles son los puertos por los que permiten conexion.
++ Apache: puerto 80
++ Apache full: puerto 80 y puerto 443
++ Apache sequre: puerto 443
 
 ### Apartado 4
+
+| Comando | Funcion |
+|---|---|
+|sudo systemctl start apache2 |Este comando inicia el servicio |
+|sudo systemctl stop apache2 |Este comando para el servicio |
+|sudo systemctl restart apache2 |Para e inicia el servicio cortando todas las conexiones |
+|sudo systemctl reload apache2 |Recarga el servicio sin pararlo completamente |
+|sudo systemctl enable apache2 |Hace que el servicio arranque automáticamente al iniciar el sistema |
+|sudo systemctl disable apache2 |Desactiva el arranque automático del servicio |
+|apache2ctl configtest |Comprueba que la sintaxis de la configuración este correcta |
+|apache2ctl -S |Muestra los sitios cargados |
+|apache2ctl -M |Lista los modulos cargados |
+|a2enmod / a2dismod |Activa / desactiva módulos |
+|a2ensite / a2dissite |Activa / desactiva sitios |
+|a2enconf / a2disconf  |Activa / desactiva fragmentos de configuración |
 
 **Pregunta**
 
 ¿Cuándo conviene usar reload en lugar de restart?
 
+
+
 ### Apartado 5
+
 | Ruta | Descripción |
 |---|---|
 |/etc/apache2/apache2.conf |Este es el archivo de configuracion principal de apache2 |
