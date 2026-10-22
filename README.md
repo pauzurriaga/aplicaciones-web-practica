@@ -11,4 +11,4 @@ Repositorio con las memorias de las practicas del modulo de Aplicaciones web
 |----|-------------------------------|----------------------------------------------------------------------|
 | 1  | Markdown y github basico      | [Ver memoria](./practica-01-html-basico/memoria.md)                   |
 | 2  | Instalacion Apache            | [ver memoria](./practica-02-apache/Apache.md)                         |
-| 3  | Instalacion de MariaDB, PHP | [ver memoria](./practica-03-MariaDB-PHP/mariaDB.md)   
+| 3  | Instalacion de MariaDB y PHP | [ver memoria](./practica03-MariaDB-PHP/mariaDB.md)   
