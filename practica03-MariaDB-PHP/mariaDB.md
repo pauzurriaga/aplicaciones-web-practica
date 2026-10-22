@@ -113,7 +113,32 @@ En esta captura se ve la pagina info.php.
 Aquí vemos los módulos descargados con PHP.
 
 ![Salida6.2](img/Salida6.2.png)
+
+![Salida6.3](img/Salida6.3.png)
+
+**Pregunta**
  
+ ¿Por qué es peligroso dejar info.php en un servidor real? ¿Para qué sirve el paquete php-mysql? 
+
+Dejar el archivo info.php expuesto en un servidor porque filtra información critica de el sistema como la versión exacta de php, rutas internas y variables de el entorno.
+
+El paquete php-mysql actua como puente de comunicacion entre php y la base de datos.
+
+## Apartado 7
+
+En este apartado haremos las comprovaciones finales.
+
+ **Salidas**
+
+![Salida7](img/Salida7.png)
+
+Aquí se ve como comprobamos si mariadb y apache están activos y la versión de php.
+
+## Conclusiones
+
+En esta práctica he aprendido a instalar y configurar MariaDB y PHP en Ubuntu 24.04 para completar el entorno LAMP. También he comprobado el funcionamiento de los servicios Apache y MariaDB, aprendido a iniciar, detener y reiniciar servicios y entendido cómo detectar errores cuando MariaDB está parado.
+
+Además, he instalado los módulos necesarios de PHP y he comprobado que Apache puede ejecutarlo y que PHP puede conectarse con MariaDB. Con esto, el servidor queda preparado para instalar WordPress en la siguiente práctica.
 
 
 
