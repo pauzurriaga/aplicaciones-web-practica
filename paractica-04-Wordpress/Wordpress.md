@@ -45,21 +45,15 @@ En este apartado deshabilitaremos los sitios de la práctica anterior y dejaremo
 
 **Salidas**
 
-![Salida2.1](img/Salida2.1.png)
+![Salida2](img/Salida2.png)
 
 En esta salida se ve cómo deshabilitamos los sitios anteriores y activamos el sitio predeterminado.
-
-![Salida2.2](img/Salida2.2.png)
-
-Aquí comprobamos que la configuración de Apache no tiene errores.
-
-![Salida2.3](img/Salida2.3.png)
-
-En esta salida vemos los sitios habilitados y la ruta del directorio web.
 
 **Capturas**
 
 ![Captura2.1](img/Captura2.1.png)
+
+![Captura2.2](img/Captura2.2.png)
 
 En esta captura se ve la página predeterminada de Apache desde el navegador.
 
@@ -77,13 +71,13 @@ Porque Apache está usando la configuración del sitio predeterminado, cuyo dire
 
 En este paso crearemos la base de datos de WordPress y un usuario específico para acceder a ella. De esta forma, WordPress no tendrá que utilizar el usuario administrador de MariaDB.
 
-**Salidas**
+**Capturas**
 
-![Salida3.1](img/Salida3.1.png)
+![Captura3.1](img/Captura3.1.png)
 
-En esta salida se ve la creación de la base de datos `wordpress` y del usuario `wp_user`, junto con los permisos asignados.
+En esta Captura se ve la creación de la base de datos `wordpress` y del usuario `wp_user`, junto con los permisos asignados.
 
-![Salida3.2](img/Salida3.2.png)
+![Captura3.2](img/Captura3.2.png)
 
 Aquí comprobamos que podemos acceder a MariaDB con el usuario de WordPress.
 
@@ -97,19 +91,15 @@ Porque el usuario propio solo necesita permisos sobre la base de datos de WordPr
 
 En este apartado descargaremos WordPress, lo descomprimiremos y copiaremos sus archivos al directorio web de Apache. Después eliminaremos los archivos que ya no hacen falta y configuraremos los permisos.
 
-**Salidas**
+**Capturas**
 
 ![Salida4.1](img/Salida4.1.png)
 
-En esta salida se ve la descarga y descompresión de WordPress.
+En esta captura se ve la descarga y descompresión de WordPress.
 
-![Salida4.2](img/Salida4.2.png)
+![Captura4.2](img/Captura4.2.png)
 
-Aquí vemos cómo copiamos los archivos al directorio `/var/www/html` y eliminamos los archivos temporales.
-
-![Salida4.3](img/Salida4.3.png)
-
-En esta salida se comprueba el propietario y los permisos de los archivos de WordPress.
+En esta Captura se comprueba el propietario y los permisos de los archivos de WordPress.
 
 **Preguntas**
 
@@ -123,27 +113,17 @@ Porque es el usuario que utiliza normalmente Apache en Ubuntu. Así el servidor 
 
 ## Apartado 5
 
-En este apartado terminaremos la instalación desde el navegador. Introduciremos los datos de conexión de la base de datos y configuraremos el nombre del sitio y la cuenta administradora.
+En este apartado terminaremos la instalación de WordPress desde el navegador. Primero accederemos a la dirección IP del servidor y aparecerá el asistente de instalación de WordPress.
 
-**Capturas**
+A continuación, introduciremos los datos de conexión con la base de datos que hemos creado anteriormente. Indicaremos el nombre de la base de datos `wordpress`, el usuario `wp_user`, la contraseña que hayamos configurado y el servidor de la base de datos, que normalmente será `localhost`.
 
-![Captura5.1](img/Captura5.1.png)
-
-En esta captura se ve el formulario de configuración de la base de datos de WordPress.
-
-![Captura5.2](img/Captura5.2.png)
-
-Aquí se ve el formulario donde configuramos el título del sitio y la cuenta administradora.
-
-![Captura5.3](img/Captura5.3.png)
-
-En esta captura se comprueba que la instalación ha terminado correctamente.
+Después de comprobar la conexión, configuraremos el título del sitio web y crearemos la cuenta administradora, indicando un nombre de usuario, una contraseña y un correo electrónico. Finalmente, completaremos la instalación y accederemos al panel de administración para comprobar que WordPress se ha instalado correctamente.
 
 **Pregunta**
 
 ¿Por qué completamos la instalación desde el navegador en vez de hacerlo todo desde la terminal?
 
-Porque WordPress incluye un asistente web que permite configurar la conexión a la base de datos y crear el sitio y la cuenta administradora. El servidor no necesita tener un entorno gráfico instalado.
+Porque WordPress dispone de un asistente web que permite configurar el sitio y crear la cuenta administradora de forma sencilla. No es necesario instalar un entorno gráfico en el servidor, ya que podemos realizar la configuración desde el navegador de otro equipo.
 
 ## Apartado 6
 
@@ -157,17 +137,7 @@ En esta captura se ve la página principal del sitio WordPress.
 
 ![Captura6.2](img/Captura6.2.png)
 
-Aquí se ve el panel de administración de WordPress.
-
-![Captura6.3](img/Captura6.3.png)
-
-En esta captura se ve la entrada de prueba publicada.
-
-**Salidas**
-
-![Salida6.1](img/Salida6.1.png)
-
-En esta salida vemos las tablas que se han creado en la base de datos de WordPress.
+En esta captura se ve el resultado de SHOW TABLES.
 
 **Pregunta**
 
@@ -179,9 +149,13 @@ Las entradas se guardan en la tabla `wp_posts` de la base de datos. En esa tabla
 
 En este apartado editaremos el archivo `wp-config.php` para configurar las direcciones del sitio y comprobaremos que el archivo PHP no tiene errores de sintaxis.
 
-**Salidas**
+**Capturas**
 
-![Salida7.1](img/Salida7.1.png)
+![Captura7.1](img/Captura7.1.png)
+
+En esta captura se ve como he puesto las dos lineas en wp-congig.php.
+
+![Captura7.2](img/Captura7.2.png)
 
 En esta salida se ve la comprobación de sintaxis realizada con `php -l`.
 
