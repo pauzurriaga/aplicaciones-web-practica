@@ -169,19 +169,7 @@ Sirven para indicar la dirección principal del sitio y la dirección donde se e
 
 En este paso configuraremos Apache para permitir las reglas de WordPress y activaremos el módulo `rewrite`. También aumentaremos el tamaño máximo permitido para las subidas de archivos de PHP a 64 MB.
 
-**Salidas**
 
-![Salida8.1](img/Salida8.1.png)
-
-En esta salida se ve la configuración de Apache para el directorio de WordPress.
-
-![Salida8.2](img/Salida8.2.png)
-
-Aquí comprobamos que la configuración de Apache es correcta y que el módulo `rewrite` está activado.
-
-![Salida8.3](img/Salida8.3.png)
-
-En esta salida comprobamos la configuración del tamaño máximo de subida de PHP.
 
 **Capturas**
 
@@ -190,8 +178,9 @@ En esta salida comprobamos la configuración del tamaño máximo de subida de PH
 En esta captura se ve la configuración de los enlaces permanentes de WordPress.
 
 ![Captura8.2](img/Captura8.2.png)
+![Captura8.3](img/Captura8.3.png)
 
-En esta captura comprobamos que una página con un enlace permanente se abre correctamente.
+En esta captura se ve como se permiten subidas de archivos hasta 64 MB.
 
 **Pregunta**
 
